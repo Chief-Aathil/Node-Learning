@@ -29,3 +29,20 @@ console.log(prevNum(10))
 console.log(add(1, 2))
 console.log(foo("johndoe"))
 printMsg()
+
+console.clear()
+const person = {
+    name: 'John',
+    age: 10,
+    greet: () => {
+        console.log("Hi I am "+this.name) //this in arrow function refers to globalThis
+    },
+    sayHi: function () {                //here this refers to the object
+        console.log("Hi I am "+this.name)
+    },
+    foo() {         //here also 'this' refers to the object
+        console.log("Hi I am "+this.name)    }
+}
+person.greet()
+person.sayHi()
+person.foo()
