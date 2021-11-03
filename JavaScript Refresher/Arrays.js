@@ -31,4 +31,27 @@ console.log({ arr, arr1, arr2, arr3 })
 const toArray = (...ele) => {       //rest operator. to combine multiple elements
     return ele
 }
-console.log(toArray(1,2,3))
+console.log(toArray(1, 2, 3))
+
+const person = {
+    name: 'John',
+    age: 10,
+    greet() {
+        console.log('hello')
+    }
+}
+person.greet()
+
+const printName = (personData) => {     //simple way of getting fields of an object
+    console.log(personData.name)
+}
+printName(person)
+
+const printDetails = ({ name, age }) => {  //Object destructuring. matched by name
+    console.log({ name, age })
+}
+printDetails(person)
+
+array = [1, 2, 3]
+let [x, y] = array          //Array destructuring. matched by position
+console.log(x, y)
