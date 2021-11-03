@@ -27,3 +27,8 @@ arr3 = [...arr] //spread operator . this copies arr to arr3
 arr1.push(6) // this change is reflected in arr also
 console.log('After changes:')
 console.log({ arr, arr1, arr2, arr3 })
+
+const toArray = (...ele) => {       //rest operator. to combine multiple elements
+    return ele
+}
+console.log(toArray(1,2,3))
