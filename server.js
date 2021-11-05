@@ -4,4 +4,6 @@ function reqListener(req, res) {
     
 }
 
-http.createServer(reqListener); //reqListener will be executed for every incoming request
+http.createServer((req, res) => {
+    console.log(req)
+}); 
