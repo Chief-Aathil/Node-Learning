@@ -6,10 +6,10 @@
 
 
 
-const handler = (fn1, fn2) => {     //takes function object/reference
-    console.log("Inside handler()")
+const handler = (fn1, fn2, timeout) => {     //takes function object/reference
+    console.log("Inside handler(). timeout:", timeout)
     fn1()
-    setTimeout(fn2, 4000)       //calls the function after the given timeout
+    setTimeout(fn2, timeout)       //calls the function after the given timeout
 }
 
 const f1 = () => {
@@ -24,4 +24,4 @@ const f2 = () => {
 // handler(() => { console.log('Clearing console in 4 sec') }
 //     , console.clear
 // )
-handler(f1, f2)
+handler(f1, f2, 2000)
