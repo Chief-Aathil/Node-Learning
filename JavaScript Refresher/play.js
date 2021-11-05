@@ -46,3 +46,6 @@ const person = {
 person.greet()
 person.sayHi()
 person.foo()
+
+console.log(username + ' is ' + age + ' years old')  //concatenation
+console.log(`${username} is ${age} years old`)      //template literal. 
