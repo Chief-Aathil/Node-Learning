@@ -49,7 +49,12 @@ Now the below code will not be executed if the above if-block is true.
   res.end();
 };
 
-module.exports = {
-  handler: requestHandler,
-  someText: "Some hard coded text",
-};
+/*Different ways to export*/
+// module.exports = {
+//   handler: requestHandler,
+//   someText: "Some hard coded text",
+// };
+// module.exports.handler = requestHandler;
+// module.exports.someText = 'Some hard coded text';
+exports.handler = requestHandler;
+exports.someText='Some hard coded text';
