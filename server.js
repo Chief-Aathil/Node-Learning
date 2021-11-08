@@ -23,7 +23,7 @@ const server=http.createServer((req, res) => {      //storing the returned serve
             console.log({ chunk })
             body.push(chunk);
         });
-        req.on('end',()=>{      //executed once all chunks are received
+        return req.on('end',()=>{      //executed once all chunks are received
             const parsedBody = Buffer.concat(body).toString();
             console.log({ parsedBody });
             const message = parsedBody.split('=')[1]; //split into substring and return in element at index 1
@@ -37,8 +37,10 @@ const server=http.createServer((req, res) => {      //storing the returned serve
     /*
     This code will be executed before the req.on('end') code.
     This will raise an error when res.setHeader() tries to set Header after the 
-    respone has already been sent
+    respone has already been sent.
+    Now the below code will not be executed if the above if-block is true.
     */
+    console.log('here')
     res.setHeader('Content-type', 'text/html')
     res.write('<html>')
     res.write('<head><title>My first page</title></head>')
