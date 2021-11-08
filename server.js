@@ -27,12 +27,13 @@ const server=http.createServer((req, res) => {      //storing the returned serve
             const parsedBody = Buffer.concat(body).toString();
             console.log({ parsedBody });
             const message = parsedBody.split('=')[1]; //split into substring and return in element at index 1
-            fs.writeFileSync('message.txt', message);
-            res.statusCode = 302; //redirection
-            res.setHeader("Location", "/");
-            res.end();
-            return;
-        })
+            fs.writeFile('message.txt', message, (err) => {
+                res.statusCode = 302; //redirection
+                res.setHeader("Location", "/");
+                res.end();
+                return;
+            });
+        });
     }
     /*
     This code will be executed before the req.on('end') code.
