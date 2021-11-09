@@ -10,7 +10,7 @@ console.log("---Starting Server---");
 
 app.use(bodyParser.urlencoded({ extended: false })); //to parse the request
 
-app.use(adminRoutes);
+app.use("/admin",adminRoutes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
