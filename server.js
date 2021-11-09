@@ -1,5 +1,3 @@
-const http = require("http"); //import the http module
-
 const express = require("express");
 
 const app = express();
@@ -7,12 +5,14 @@ const app = express();
 console.log("---Starting Server---");
 
 app.use((req, res, next) => {
-    console.log("In the middleware");
+    console.log("In first middleware");
+    console.log('url:',req.url )
     next(); // to call the next use() in line
 });
 
 app.use((req, res, next) => {
-  console.log("In another middleware");
+    console.log("In another middleware");
+    res.send('<h1>Hello from express!</h1>')
 });
 
 //the below use() will not be executed as the previous one doesn't call next()
@@ -21,6 +21,4 @@ app.use((req, res, next) => {
 });
 
 
-const server = http.createServer(app);
-
-server.listen(3000); //to start listening at the given port
+app.listen(3000)
