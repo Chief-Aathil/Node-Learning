@@ -12,5 +12,8 @@
     "url": "\\"
   },
   "author": "Aathil",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
 }
