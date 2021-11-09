@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false })); //to parse the request
 app.use((req, res, next) => {
     const url = req.url;
     const method = req.method;
-    console.log("-->Request", { url, method });
+    const reqBody = req.body;
+    console.log("-->Request", { url, method, reqBody });
     next();
  });
 
@@ -26,7 +27,6 @@ app.use("/admin",adminRoutes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-    console.log(req.body);
     res.status(404).sendFile(path.join(rootDir,"views","404.html"));
 });
 
