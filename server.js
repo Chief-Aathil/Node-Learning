@@ -1,9 +1,10 @@
 const http = require('http');     //import the http module
 
-const routes = require('./routes');
+const express = require('express')
+
+const app = express();
 
 console.log('---Starting Server---');
-console.log(routes.someText);
-const server = http.createServer(routes.handler);
+const server = http.createServer(app);
 
 server.listen(3000);  //to start listening at the given port
