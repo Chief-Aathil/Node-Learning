@@ -15,6 +15,7 @@ const shopRoutes = require("./routes/shop");
 console.log("---Starting Server---");
 
 app.use(bodyParser.urlencoded({ extended: false })); //to parse the request
+app.use(express.static("public"));//path.join(rootDir, "public")));
 app.use((req, res, next) => {
     const url = req.url;
     const method = req.method;
